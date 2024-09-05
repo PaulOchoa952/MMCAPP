@@ -1,0 +1,13 @@
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=1145Orbea" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=1145Orbea" -p 1433:1433 --name sqlserver -v C:\Users\p_a_u\Documents\SEMESTRE9\NoSql\slqserver-data:/var/opt/mssql/data -d mcr.microsoft.com/mssql/server:2019-latest
+
+docker cp C:\Users\p_a_u\Documents\SEMESTRE9\NoSql\ProyectoMMCA\MMCA.mdf sqlserver:/var/opt/mssql/data/
+docker cp C:\Users\p_a_u\Documents\SEMESTRE9\NoSql\ProyectoMMCA\MMCA_log.ldf sqlserver:/var/opt/mssql/data/
+docker cp /ruta/local/tu_base_datos.ldf sqlserver:/var/opt/mssql/data/
+docker cp /ruta/local/tu_base_datos.ldf sqlserver:/var/opt/mssql/data/
+
+
+docker exec -it sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P YourStrong!Passw0rd
+
+
+docker exec -it sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 1145Orbea
